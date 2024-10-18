@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip-Path</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #section1{
+            width: 100%;
+            height: 75vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 80px;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMVOXYdhkq4Cxw3Zp6M79c-TfvMPTlWdGnIw&s");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            clip-path: polygon(0 0, 100% 0%, 100% 84%, 50% 100%, 0 82%);
+            position: relative;
+        }
+
+        #section1 #dummybox{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            background-color: black;
+            opacity: 0.6;
+        }
+
+        #section1 #navbar{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            z-index: 1;
+            padding-top: 20px;
+        }
+        #section1 #navbar .logo{
+            height: 40px;
+            width: 100px;
+            /* border: 2px solid; */
+            background-image: url("data:image/png;base64,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");
+            background-position: center;
+            background-size: cover;
+            z-index: 1;
+            filter: invert();
+            border-radius: 2px;
+        }
+        #section1 #navbar .links{
+            display: flex;
+            justify-content: space-evenly;
+            /* border: 2px solid; */
+            width: 60%;
+            gap: 10px;
+        }
+        #section1 #navbar .links a{
+            text-decoration: none;
+            color: white;
+        }
+        #section1 #content{
+            /* border: 2px solid; */
+            width: 70%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            z-index: 1;
+        }
+        #section1 #content .line1{
+            font-size: 25px;
+            color: white;
+        }
+        #section1 #content .line2{
+            font-size: 50px;
+            color: white;
+        }
+        #section1 #content .line3{
+            width: 50%;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+        }
+        #section1 #content .line-button{
+            display: flex;
+            gap: 20px;
+        }
+
+        #section1 #content .line-button button{
+            width: 170px;
+            padding: 10px 0;
+        }
+        #section1 #content .line-button :nth-child(1){
+            background-color: red;
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 2px;
+        }
+        #section1 #content .line-button :nth-child(2){
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            outline: none;
+            border-radius: 2px;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="section1">
+        <div id="navbar">
+            <div class="logo"></div>
+            <div class="links">
+                <a href="">HOME</a>
+                <a href="">ABOUT US</a>
+                <a href="">PORTFOLIO</a>
+                <a href="">PRICING</a>
+                <a href="">TEAM</a>
+                <a href="">BLOG</a>
+                <a href="">CONTACT</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="line1">
+                Our Clients Are Our Priority
+            </div>
+            <div class="line2">
+                WELCOME TO SKY
+            </div>
+            <div class="line3">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates vero voluptate minima optio autem nesciunt tempora, quisquam, vitae ex eum dicta repudiandae ullam, iste odio dolorem facilis provident debitis modi!
+            </div>
+            <div class="line-button">
+                <button>GET STARTED NOW</button>
+                <button>LEARN MORE</button>
+            </div>
+        </div>
+
+        <div id="dummybox"></div>
+    </div>
+    
+</body>
+</html>
