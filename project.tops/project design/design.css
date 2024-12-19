@@ -1,0 +1,30 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Nova Section Styling */
+.nova-section .nova-bg {
+    background: url('https://via.placeholder.com/800x800') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.nova-section .play-icon {
+    font-size: 12px;
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    color: white;
+}
+
+.border-white {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
